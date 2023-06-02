@@ -59,14 +59,14 @@ const AuthForm = () => {
       }))
       .then((callback) => {
         if (callback?.error) {
-          toast.error('Invalid credentials!');
+          toast.error('Database Error - @Levi');
         }
 
         if (callback?.ok) {
           router.push('/conversations')
         }
       })
-      .catch(() => toast.error('Something went wrong!'))
+      .catch(() => toast.error('Database Error - @Levi'))
       .finally(() => setIsLoading(false))
     }
 
@@ -77,7 +77,7 @@ const AuthForm = () => {
       })
       .then((callback) => {
         if (callback?.error) {
-          toast.error('Invalid credentials!');
+          toast.error('Database Error - Incorrect Login');
         }
 
         if (callback?.ok) {
@@ -94,7 +94,7 @@ const AuthForm = () => {
     signIn(action, { redirect: false })
       .then((callback) => {
         if (callback?.error) {
-          toast.error('Invalid credentials!');
+          toast.error('Database Error - Incorrect Login');
         }
 
         if (callback?.ok) {
@@ -174,7 +174,7 @@ const AuthForm = () => {
             </div>
           </div>
 
-          <div className="mt-6 flex gap-2">
+          {/* <div className="mt-6 flex gap-2">
             <AuthSocialButton 
               icon={BsGithub} 
               onClick={() => socialAction('github')} 
@@ -183,7 +183,7 @@ const AuthForm = () => {
               icon={BsGoogle} 
               onClick={() => socialAction('google')} 
             />
-          </div>
+          </div> */}
         </div>
         <div 
           className="
@@ -197,7 +197,7 @@ const AuthForm = () => {
           "
         >
           <div>
-            {variant === 'LOGIN' ? 'New to Messenger?' : 'Already have an account?'} 
+            {variant === 'LOGIN' ? '' : 'Already have an account?'} 
           </div>
           <div 
             onClick={toggleVariant} 
