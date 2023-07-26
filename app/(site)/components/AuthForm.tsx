@@ -3,7 +3,7 @@
 import axios from "axios";
 import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
-import { BsGithub, BsGoogle  } from 'react-icons/bs';
+import { BsGithub, BsGoogle, BsMicrosoft  } from 'react-icons/bs';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 
@@ -183,6 +183,10 @@ const AuthForm = () => {
               icon={BsGoogle} 
               onClick={() => socialAction('google')} 
             />
+            <AuthSocialButton 
+              icon={BsMicrosoft} 
+              onClick={() => socialAction('microsoft')} 
+            />
           </div>
         </div>
         <div 
@@ -197,7 +201,7 @@ const AuthForm = () => {
           "
         >
           <div>
-            {variant === 'LOGIN' ? 'New to Messenger?' : 'Already have an account?'} 
+            {variant === 'LOGIN' ? 'New to PostU-Messenger?' : 'Already have an account?'} 
           </div>
           <div 
             onClick={toggleVariant} 
